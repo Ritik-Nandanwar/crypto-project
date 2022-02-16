@@ -16,12 +16,9 @@ const Home = () => {
 
   return (
     <Container>
-      <Typography align="center" variant="h3">
-        Home
-      </Typography>{" "}
-      <Grid container item spacing={3} width="100%">
+      <Grid container spacing={2} item>
         {coins.map((coin) => (
-          <Grid item xs={3}>
+          <Grid item>
             <Single coin={coin} />
           </Grid>
         ))}
