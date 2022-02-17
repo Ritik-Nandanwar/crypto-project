@@ -1,9 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap");
+@import "react-alice-carousel/lib/alice-carousel.css";
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   /* background-color: #a1a1a1; */
   scroll-behavior: smooth;
-  font-family: "Monsterrat";
+  /* font-family: "Monsterrat"; */
 }
