@@ -1,4 +1,14 @@
-import { Container, Grid, Typography } from "@mui/material";
+import {
+  Container,
+  Grid,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Typography,
+} from "@mui/material";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Single from "./Single";
@@ -15,14 +25,29 @@ const Home = () => {
   }, []);
 
   return (
-    <Container>
-      <Grid container spacing={2} item>
-        {coins.map((coin) => (
-          <Grid item>
-            <Single coin={coin} />
-          </Grid>
-        ))}
-      </Grid>
+    <Container
+      style={{
+        backgroundColor: "white",
+      }}
+    >
+      <Table style={{ backgroundColor: "red" }}>
+        <TableContainer>
+          <TableHead>
+            <TableRow>
+              <TableCell>Name</TableCell>
+              <TableCell align="right">Symbol</TableCell>
+              <TableCell align="right">Total Supply</TableCell>
+              <TableCell align="right">Total Volume</TableCell>
+              <TableCell align="right">High 24 hr.</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {coins.map((coin) => (
+              <Single coin={coin} />
+            ))}
+          </TableBody>
+        </TableContainer>
+      </Table>
     </Container>
   );
 };

@@ -2,6 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* background-color: #1e1e1e; */
-  /* color: gold; */
+  background-color: #a1a1a1;
+  scroll-behavior: smooth;
 }
