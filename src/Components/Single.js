@@ -23,12 +23,12 @@ const Single = ({ coin }) => {
     <>
       <TableRow>
         <TableCell component="th" scope="row">
-          {coin.name}
+          {coin.name.toUpperCase()}
         </TableCell>
-        <TableCell align="right">{coin.symbol}</TableCell>
-        <TableCell align="right">{coin.total_supply}</TableCell>
-        <TableCell align="right">{coin.total_volume}</TableCell>
-        <TableCell align="right">{coin.high_24h}</TableCell>
+        <TableCell align="left">{coin.symbol.toUpperCase()}</TableCell>
+        <TableCell align="left">{coin.total_supply}</TableCell>
+        <TableCell align="left">{coin.total_volume}</TableCell>
+        <TableCell align="left">{coin.high_24h}</TableCell>
       </TableRow>
     </>
   );

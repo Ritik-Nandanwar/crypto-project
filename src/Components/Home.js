@@ -25,28 +25,22 @@ const Home = () => {
   }, []);
 
   return (
-    <Container
-      style={{
-        backgroundColor: "white",
-      }}
-    >
-      <Table style={{ backgroundColor: "red" }}>
-        <TableContainer>
-          <TableHead>
-            <TableRow>
-              <TableCell>Name</TableCell>
-              <TableCell align="right">Symbol</TableCell>
-              <TableCell align="right">Total Supply</TableCell>
-              <TableCell align="right">Total Volume</TableCell>
-              <TableCell align="right">High 24 hr.</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {coins.map((coin) => (
-              <Single coin={coin} />
-            ))}
-          </TableBody>
-        </TableContainer>
+    <Container style={{}}>
+      <Table style={{ backgroundColor: "gray" }}>
+        <TableHead style={{}}>
+          <TableRow style={{ color: "pink", width: "100%" }}>
+            <TableCell>Name</TableCell>
+            <TableCell align="left">Symbol</TableCell>
+            <TableCell align="left">Total Supply</TableCell>
+            <TableCell align="left">Total Volume</TableCell>
+            <TableCell align="left">High 24 hr.</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {coins.map((coin) => (
+            <Single coin={coin} />
+          ))}
+        </TableBody>
       </Table>
     </Container>
   );
