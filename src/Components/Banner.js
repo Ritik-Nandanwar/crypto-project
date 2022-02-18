@@ -1,12 +1,36 @@
 import { Container, Link, Typography } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import { TrendingCoins } from "../config.api";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import AliceCarousel from "react-alice-carousel";
 import banner from "../assets/banner.jpg";
-const handleDragStart = (e) => e.preventDefault();
+const useStyles = makeStyles({
+  bannerText: {
+    position: "absolute",
+    top: "30%",
+    textAlign: "center",
+    display: "flex",
+    // alignItems: "center",
+    flexDirection: "column",
+  },
+  carousel: {
+    height: "50%",
+    display: "flex",
+    alignItems: "center",
+  },
+  carouselItem: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    cursor: "pointer",
+    textTransform: "uppercase",
+    color: "white",
+  },
+});
 
 const Banner = () => {
+  const classes = useStyles();
   const [trending, setTrending] = useState([]);
   const getTrendingCoins = async () => {
     let d = await axios.get(TrendingCoins("USD"));
@@ -24,52 +48,28 @@ const Banner = () => {
     );
   });
   const responsive = {
-    0: {
-      items: 2,
-    },
-    512: {
-      items: 4,
-    },
+    0: { items: 1 },
+    568: { items: 2 },
+    1024: { items: 3 },
   };
   return (
     <div>
-      <img
-        width="100%"
-        style={{
-          width: "100%",
-          height: "50vh",
-          backgroundPosition: "center center",
-          backgroundRepeat: "noRepeat",
-          position: "relative",
-        }}
-        src={banner}
-        alt=""
-      />
-      <Container
-        className=""
-        style={{
-          position: "absolute",
-          fontFamily: "Monsterrat",
-          top: "20%",
-          marginLeft: "8vw",
-          color: "white",
-          display: "flex",
-          flexDirection: "column",
-          textAlign: "center",
-        }}
-      >
-        <Typography variant="h1" style={{}}>
+      <img src={banner} alt="" width="100%" height={"400px"} />
+      <Container className={classes.bannerText}>
+        <Typography variant="h1" color={"primary"}>
           Crypto
         </Typography>
-        <Typography>Track all crypto</Typography>
+        <Typography color={"primary"}>Track all crypto</Typography>
         <AliceCarousel
           mouseTracking
           infinite
           autoPlayInterval={1000}
-          animationDuration={1000}
+          animationDuration={1500}
+          disableDotsControls
+          disableButtonsControls
+          responsive={responsive}
           items={items}
           autoPlay
-          responsive={responsive}
         />
       </Container>
 

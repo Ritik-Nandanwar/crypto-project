@@ -1,23 +1,36 @@
 import {
   AppBar,
+  Button,
   Container,
   FormControl,
-  InputLabel,
-  //   makeStyles,
   MenuItem,
   Select,
   Toolbar,
   Typography,
 } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
+const useStyles = makeStyles({
+  root: {
+    background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
+    border: 0,
+    borderRadius: 3,
+    boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
+    color: "white",
+    height: 48,
+    padding: "0 30px",
+  },
+});
+
 const Navbar = () => {
+  const classes = useStyles();
   //   const classes = useStyles();
-  const [age, setAge] = React.useState("USD");
+  const [currency, setCurrency] = React.useState("USD");
 
   const handleChange = (e) => {
-    setAge(e.target.value);
+    setCurrency(e.target.value);
     console.log(e.target.value);
   };
 
@@ -44,9 +57,9 @@ const Navbar = () => {
             >
               C-Krypto
             </Typography>
+            <Button className={classes.root}>Hook</Button>;
             <FormControl>
-              <InputLabel>Currency</InputLabel>
-              <Select value={age} label="Age" onChange={handleChange}>
+              <Select value={currency} label="Currency" onChange={handleChange}>
                 <MenuItem value={"USD"}>USD</MenuItem>
                 <MenuItem value={"INR"}>INR</MenuItem>
               </Select>
