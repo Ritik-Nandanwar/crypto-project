@@ -14,10 +14,9 @@ import {
 } from "@mui/material";
 import React from "react";
 
-function createData(name, symbol, ath_change_percentage, image, low_24h) {
-  return { name, symbol, ath_change_percentage, image, low_24h };
+export function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
-
 const Single = ({ coin }) => {
   return (
     <>
@@ -26,7 +25,10 @@ const Single = ({ coin }) => {
           {coin.name.toUpperCase()}
         </TableCell>
         <TableCell align="left">{coin.symbol.toUpperCase()}</TableCell>
-        <TableCell align="left">{coin.total_supply}</TableCell>
+        <TableCell align="left">
+          ${numberWithCommas(coin.current_price.toFixed(2))}
+        </TableCell>
+        {/* <TableCell align="left">{coin.total_supply}</TableCell> */}
         <TableCell align="left">{coin.total_volume}</TableCell>
         <TableCell align="left">{coin.high_24h}</TableCell>
       </TableRow>
